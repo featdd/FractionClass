@@ -23,6 +23,7 @@
  */
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <cstdlib>
 #include <exception>
@@ -211,6 +212,37 @@ long Fraction::operator%(Fraction fraction) {
 	result = ((this->numerator * fraction.getDenominator()) % (this->denominator * fraction.getNumerator())) / (this->denominator * fraction.getDenominator());
 
 	return result;
+}
+
+/**
+ * Double typecast operator overloading
+*/
+Fraction::operator double() {
+	return this->convertFractionToDouble();
+}
+
+/**
+ * Float typecast operator overloading
+*/
+Fraction::operator float() {
+	return (float)this->convertFractionToDouble();
+}
+
+/**
+ * Long typecast operator overloading
+*/
+Fraction::operator long() {
+	return (long)this->convertFractionToDouble();
+}
+
+/**
+ * Std::string typecast operator overloading
+*/
+Fraction::operator std::string() {
+	std::stringstream output;
+	output << this->getNumerator() << "/" << this->getDenominator();
+
+	return output.str();
 }
 
 /**

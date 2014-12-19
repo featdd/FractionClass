@@ -61,7 +61,11 @@ class Fraction {
 		bool operator>=(Fraction fraction);
 		bool operator==(Fraction fraction);
 		bool operator!=(Fraction fraction);
-		long operator%(Fraction fraction);		
+		long operator%(Fraction fraction);
+		operator double();
+		operator float();
+		operator long();
+		operator std::string();
 		Fraction operator+(Fraction fraction);
 		Fraction operator+=(Fraction fraction);
 		Fraction operator-=(Fraction fraction);
