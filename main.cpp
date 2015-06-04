@@ -23,7 +23,6 @@
  */
 
 #include <iostream>
-#include <cstdlib>
 #include "Fraction.hpp"
 
 void clear_screen(void) {
@@ -34,7 +33,7 @@ void clear_screen(void) {
 	#endif
 }
 
-void pause(void) {
+void consolePause(void) {
 	std::cin.clear();
 	std::cin.ignore(256, '\n'); 
 	std::cin.get();
@@ -291,42 +290,42 @@ int main(void) {
 		switch(choice) {
 			case 1: {
 				convertDoubleToFraction();
-				pause();
+				consolePause();
 				break;
 			}			
 			case 2: {
 				convertFractionToDouble();
-				pause();
+				consolePause();
 				break;
 			}
 			case 3: {
 				addFractions();
-				pause();
+				consolePause();
 				break;
 			}
 			case 4: {
 				subtractFractions();
-				pause();
+				consolePause();
 				break;
 			}
 			case 5: {
 				multiplyFractions();
-				pause();
+				consolePause();
 				break;
 			}
 			case 6: {
 				divideFractions();
-				pause();
+				consolePause();
 				break;
 			}
 			case 7: {
 				compareFractions();
-				pause();
+				consolePause();
 				break;
 			}
 			case 8: {
 				complementOfFraction();
-				pause();
+				consolePause();
 				break;
 			}
 			case 9: {
@@ -335,7 +334,7 @@ int main(void) {
 			}				
 			default: {
 				std::cout << "Incorrect Input\n";
-				pause();
+				consolePause();
 			}
 		}
 	}
