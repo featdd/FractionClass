@@ -61,11 +61,7 @@ Fraction::~Fraction(void) {}
  * the greatest common divisor
  */
 long Fraction::euclidean(long a, long b){
-    if(b == 0) {
-    	return a;
-    } else {
-    	return this->euclidean(b, a % b);
-    }
+	return b == 0 ? a : this->euclidean(b, a % b);
 }
 
 /**
