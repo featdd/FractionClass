@@ -123,7 +123,7 @@ void Fraction::convertDoubleToFraction(double Number) {
 		this->denominator = this->denominator * 10;
 	}
 
-	this->numerator = (long)Number;	
+	this->numerator = (long)Number;
 
 	this->reduce();
 }
@@ -149,7 +149,7 @@ bool Fraction::convertStringToFraction(std::string FractionString) {
 			this->denominator = atol(FractionString.substr(pos + 1).c_str());
 		} catch(...) {
 			return false;
-		}		
+		}
 
 		return (this->denominator == 0) ? false : true;
 	}
@@ -160,43 +160,43 @@ bool Fraction::convertStringToFraction(std::string FractionString) {
 /**
  * Smaller than operator overloading
 */
-bool Fraction::operator<(Fraction fraction) {	
-	return (this->numerator * (this->denominator * fraction.getDenominator())) < (fraction.getNumerator() * (this->denominator * fraction.getDenominator()));
+bool Fraction::operator<(Fraction fraction) {
+	return (this->numerator * fraction.getDenominator()) < (fraction.getNumerator() * this->denominator);
 }
 
 /**
  * Smaller than or equal operator overloading
 */
-bool Fraction::operator<=(Fraction fraction) {	
-	return (this->numerator * (this->denominator * fraction.getDenominator())) <= (fraction.getNumerator() * (this->denominator * fraction.getDenominator()));
+bool Fraction::operator<=(Fraction fraction) {
+	return (this->numerator * fraction.getDenominator()) <= (fraction.getNumerator() * this->denominator);
 }
 
 /**
  * Bigger than operator overloading
 */
 bool Fraction::operator>(Fraction fraction) {
-	return (this->numerator * (this->denominator * fraction.getDenominator())) > (fraction.getNumerator() * (this->denominator * fraction.getDenominator()));
+	return (this->numerator * fraction.getDenominator()) > (fraction.getNumerator() * this->denominator);
 }
 
 /**
  * Bigger than or equal operator overloading
 */
 bool Fraction::operator>=(Fraction fraction) {
-	return (this->numerator * (this->denominator * fraction.getDenominator())) >= (fraction.getNumerator() * (this->denominator * fraction.getDenominator()));
+	return (this->numerator * fraction.getDenominator()) >= (fraction.getNumerator() * this->denominator);
 }
 
 /**
  * Equal operator overloading
 */
 bool Fraction::operator==(Fraction fraction) {
-	return (this->numerator * (this->denominator * fraction.getDenominator())) == (fraction.getNumerator() * (this->denominator * fraction.getDenominator()));
+	return (this->numerator * fraction.getDenominator()) == (fraction.getNumerator() * this->denominator);
 }
 
 /**
  * Non-Equal operator overloading
 */
 bool Fraction::operator!=(Fraction fraction) {
-	return (this->numerator * (this->denominator * fraction.getDenominator())) != (fraction.getNumerator() * (this->denominator * fraction.getDenominator()));
+	return (this->numerator * fraction.getDenominator()) != (fraction.getNumerator() * this->denominator);
 }
 
 /**
@@ -352,13 +352,13 @@ Fraction Fraction::operator/=(Fraction fraction) {
 */
 Fraction Fraction::operator~(void) {
 	Fraction resultFraction;
-	
+
 	if(this->numerator > this->denominator) {
 		return *this;
 	} else {
 		resultFraction.setNumerator(this->denominator - this->numerator);
 		resultFraction.setDenominator(this->denominator);
-		
+
 		return resultFraction;
 	}
 }
@@ -375,7 +375,7 @@ Fraction Fraction::operator++(void) {
 /**
  * Decrement operator overloading
 */
-Fraction Fraction::operator--(void) {	
+Fraction Fraction::operator--(void) {
 	this->numerator -= 1;
 
 	return *this;
